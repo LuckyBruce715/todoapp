@@ -6,6 +6,8 @@ export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
   }),
+  baseURL: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+  secret: process.env.BETTER_AUTH_SECRET as string,
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID as string,
