@@ -20,7 +20,10 @@
       "mcp__shadcn__get_add_command_for_items",
       "Bash(pnpm dlx shadcn@latest add:*)",
       "Bash(npx shadcn@latest add:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(git config:*)",
+      "Bash(git commit:*)",
+      "Bash(npx pnpm install:*)"
     ],
     "additionalDirectories": [
       "C:\\c\\Projects\\nextjs-better-auth-postgresql-starter-kit"

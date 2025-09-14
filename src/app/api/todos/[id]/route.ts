@@ -7,7 +7,7 @@ import { eq, and } from "drizzle-orm";
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await auth.api.getSession({
@@ -18,7 +18,8 @@ export async function PATCH(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const todoId = parseInt(params.id);
+    const resolvedParams = await params;
+    const todoId = parseInt(resolvedParams.id);
     if (isNaN(todoId)) {
       return NextResponse.json(
         { error: "Invalid todo ID" },
@@ -73,7 +74,7 @@ export async function PATCH(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await auth.api.getSession({
@@ -84,7 +85,8 @@ export async function DELETE(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const todoId = parseInt(params.id);
+    const resolvedParams = await params;
+    const todoId = parseInt(resolvedParams.id);
     if (isNaN(todoId)) {
       return NextResponse.json(
         { error: "Invalid todo ID" },
