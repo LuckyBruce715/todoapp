@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -c (New-Object Media.SoundPlayer \"D:\\Claude\\bell.wav\").PlaySync()"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -5,47 +5,47 @@ import { useSession } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Cat, Sparkles, Brain, Shield, Heart, Zap, ArrowRight, CheckCircle } from "lucide-react";
+import { Briefcase, Sparkles, Brain, Shield, Layers, Zap, ArrowRight, CheckCircle } from "lucide-react";
 
 export default function HomePage() {
   const { data: session } = useSession();
 
   const features = [
     {
-      icon: <Brain className="h-8 w-8 text-pink-500" />,
+      icon: <Brain className="h-8 w-8 text-blue-600" />,
       title: "AI-Powered Smart Sorting",
-      description: "Let our clever AI kitten categorize and prioritize your tasks automatically!"
+      description: "Automatically categorize and prioritize tasks using intelligent analysis."
     },
     {
-      icon: <Heart className="h-8 w-8 text-red-400" />,
-      title: "Warm & Friendly Interface",
-      description: "A delightfully cozy experience that makes task management feel less like work"
+      icon: <Layers className="h-8 w-8 text-indigo-600" />,
+      title: "Clean, Focused Interface",
+      description: "A streamlined UI that helps you stay organized without distractions."
     },
     {
-      icon: <Zap className="h-8 w-8 text-yellow-500" />,
+      icon: <Zap className="h-8 w-8 text-amber-500" />,
       title: "Lightning Fast",
-      description: "Add tasks in seconds and watch them organize themselves like magic"
+      description: "Capture and organize tasks in seconds with minimal clicks."
     },
     {
-      icon: <Shield className="h-8 w-8 text-blue-500" />,
+      icon: <Shield className="h-8 w-8 text-slate-600" />,
       title: "Secure & Private",
-      description: "Your tasks are safe with us - protected by Google OAuth and encrypted storage"
+      description: "Sign in with Google OAuth; store data securely with encrypted storage."
     }
   ];
 
   const testimonials = [
     {
-      text: "KittyTask made organizing my life actually fun! The AI is surprisingly smart.",
+      text: "TaskAgent keeps my priorities clear and my work moving.",
       author: "Sarah M.",
       role: "Freelance Designer"
     },
     {
-      text: "Finally, a todo app that doesn't make me feel overwhelmed. Love the playful design!",
+      text: "The categorization and clean UI reduced my planning time drastically.",
       author: "Mike K.",
       role: "Software Developer"
     },
     {
-      text: "The automatic categorization saves me so much time. It's like having a personal assistant!",
+      text: "Simple to use, fast, and reliable—exactly what I needed.",
       author: "Emma L.",
       role: "Student"
     }
@@ -54,26 +54,21 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 dark:from-pink-950/30 dark:via-purple-950/30 dark:to-indigo-950/30 py-20">
+      <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900/30 dark:via-slate-900/30 dark:to-indigo-950/30 py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             {/* Logo & Title */}
             <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="relative">
-                <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-500 text-white shadow-lg">
-                  <Cat className="h-10 w-10" />
-                </div>
-                <div className="absolute -top-1 -right-1">
-                  <Sparkles className="h-6 w-6 text-yellow-400 animate-pulse" />
-                </div>
+              <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg">
+                <Briefcase className="h-10 w-10" />
               </div>
-              <h1 className="text-6xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
-                KittyTask
+              <h1 className="text-6xl font-bold text-slate-900 dark:text-slate-100">
+                TaskAgent
               </h1>
             </div>
 
             <p className="text-2xl text-gray-600 dark:text-gray-300 mb-4">
-              The purr-fect way to organize your life! 🐱
+              Professional task management—organized, fast, and secure.
             </p>
             
             <p className="text-xl text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
@@ -83,14 +78,14 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               {session?.user ? (
-                <Button asChild size="lg" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white shadow-lg text-lg px-8 py-4">
+                <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg text-lg px-8 py-4">
                   <Link href="/dashboard">
                     Open My Dashboard
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
               ) : (
-                <Button asChild size="lg" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white shadow-lg text-lg px-8 py-4">
+                <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg text-lg px-8 py-4">
                   <Link href="/sign-in">
                     Get Started for Free
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -110,7 +105,7 @@ export default function HomePage() {
                   <div className="w-3 h-3 rounded-full bg-red-400"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
                   <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                  <span className="ml-4 text-sm text-gray-500">KittyTask Dashboard</span>
+                  <span className="ml-4 text-sm text-gray-500">TaskAgent Dashboard</span>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg border-l-4 border-blue-400">
@@ -123,10 +118,10 @@ export default function HomePage() {
                     <span className="text-gray-700 dark:text-gray-300">Buy groceries for dinner</span>
                     <Badge variant="outline" className="ml-auto text-xs bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300">shopping</Badge>
                   </div>
-                  <div className="flex items-center gap-3 p-3 bg-pink-50 dark:bg-pink-950/30 rounded-lg border-l-4 border-pink-400">
-                    <CheckCircle className="h-4 w-4 text-pink-500" />
+                  <div className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-900/30 rounded-lg border-l-4 border-slate-400">
+                    <CheckCircle className="h-4 w-4 text-slate-600" />
                     <span className="text-gray-700 dark:text-gray-300">Call mom this weekend</span>
-                    <Badge variant="outline" className="ml-auto text-xs bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-300">personal</Badge>
+                    <Badge variant="outline" className="ml-auto text-xs bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300">personal</Badge>
                   </div>
                 </div>
               </div>
@@ -139,8 +134,8 @@ export default function HomePage() {
       <section className="py-20 bg-white dark:bg-gray-950">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-              Why KittyTask is Paw-some
+            <h2 className="text-4xl font-bold mb-4 text-slate-900 dark:text-slate-100">
+              Why Choose TaskAgent
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               We&apos;ve packed all the features you need to stay organized, with none of the complexity you don&apos;t.
@@ -149,7 +144,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {features.map((feature, index) => (
-              <Card key={index} className="border-2 border-gray-100 dark:border-gray-800 hover:border-pink-200 dark:hover:border-pink-800 transition-colors duration-300 hover:shadow-lg">
+              <Card key={index} className="border-2 border-gray-100 dark:border-gray-800 hover:border-indigo-200 dark:hover:border-indigo-800 transition-colors duration-300 hover:shadow-lg">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
@@ -179,7 +174,7 @@ export default function HomePage() {
               Happy Humans (and their Cats)
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              See what our users are saying about KittyTask
+              See how TaskAgent helps teams and individuals focus.
             </p>
           </div>
 
@@ -206,28 +201,26 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
-              Ready to Pounce on Productivity?
+              Ready to Streamline Your Workflow?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join thousands of happy users who&apos;ve tamed their chaotic schedules with KittyTask. 
-              It&apos;s free, it&apos;s fun, and it actually works!
+              Join thousands of users who organize priorities and deliver work on time
+              with TaskAgent. It&apos;s fast, focused, and effective!
             </p>
             
             {session?.user ? (
               <Button asChild size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-gray-100 shadow-lg text-lg px-8 py-4">
                 <Link href="/dashboard">
-                  <Cat className="mr-2 h-5 w-5" />
                   Go to Dashboard
                 </Link>
               </Button>
             ) : (
               <Button asChild size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-gray-100 shadow-lg text-lg px-8 py-4">
                 <Link href="/sign-in">
-                  <Cat className="mr-2 h-5 w-5" />
                   Start Organizing Today
                 </Link>
               </Button>

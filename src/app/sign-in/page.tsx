@@ -3,7 +3,7 @@
 import { useSession, signIn } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Cat, Sparkles, Heart } from "lucide-react";
+import { Briefcase } from "lucide-react";
 import { redirect } from "next/navigation";
 
 export default function SignInPage() {
@@ -15,42 +15,31 @@ export default function SignInPage() {
 
   if (isPending) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 dark:from-pink-950/30 dark:via-purple-950/30 dark:to-indigo-950/30">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-pink-500"></div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900/30 dark:via-slate-900/30 dark:to-indigo-950/30">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 dark:from-pink-950/30 dark:via-purple-950/30 dark:to-indigo-950/30">
-      <Card className="w-full max-w-md border-2 border-pink-100 dark:border-pink-900/50 shadow-2xl">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900/30 dark:via-slate-900/30 dark:to-indigo-950/30">
+      <Card className="w-full max-w-md border-2 border-slate-200 dark:border-slate-800/50 shadow-2xl">
         <CardHeader className="text-center pb-2">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="relative">
-              <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-500 text-white shadow-lg">
-                <Cat className="h-10 w-10" />
-              </div>
-              <div className="absolute -top-1 -right-1">
-                <Sparkles className="h-6 w-6 text-yellow-400 animate-pulse" />
-              </div>
+            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg">
+              <Briefcase className="h-10 w-10" />
             </div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
-              KittyTask
+            <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100">
+              TaskAgent
             </h1>
           </div>
           <CardTitle className="text-2xl text-gray-900 dark:text-gray-100">Welcome back!</CardTitle>
           <CardDescription className="text-gray-600 dark:text-gray-400">
-            Ready to get your tasks purr-fectly organized?
+            Sign in to manage tasks efficiently with TaskAgent.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="text-center mb-6">
-            <div className="flex items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
-              <Heart className="h-4 w-4 text-pink-400" />
-              <span>Join thousands of happy users</span>
-              <Heart className="h-4 w-4 text-pink-400" />
-            </div>
-          </div>
+          <div className="text-center mb-6"></div>
           
           <Button
             onClick={async () => {
@@ -59,7 +48,7 @@ export default function SignInPage() {
                 callbackURL: "/dashboard",
               });
             }}
-            className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white shadow-lg"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg"
             size="lg"
           >
             <svg className="mr-2 h-5 w-5" viewBox="0 0 24 24">

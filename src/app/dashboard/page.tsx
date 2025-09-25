@@ -11,7 +11,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Plus, Trash2, Calendar, Cat, Heart, Sparkles, Star } from "lucide-react";
+import { Plus, Trash2, Calendar, Briefcase, Star } from "lucide-react";
 
 const CATEGORY_COLORS: Record<TodoCategory, string> = {
   work: "bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300",
@@ -71,11 +71,11 @@ export default function DashboardPage() {
 
   if (isPending) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 dark:from-pink-950/30 dark:via-purple-950/30 dark:to-indigo-950/30">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900/30 dark:via-slate-900/30 dark:to-indigo-950/30">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-pink-500 mx-auto mb-4"></div>
-          <div className="flex items-center gap-2 text-pink-600 dark:text-pink-400">
-            <Cat className="h-5 w-5" />
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mx-auto mb-4"></div>
+          <div className="flex items-center gap-2 text-indigo-700 dark:text-indigo-400">
+            <Briefcase className="h-5 w-5" />
             <span>Loading your tasks...</span>
           </div>
         </div>
@@ -144,13 +144,13 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 dark:from-pink-950/30 dark:via-purple-950/30 dark:to-indigo-950/30">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900/30 dark:via-slate-900/30 dark:to-indigo-950/30">
         <div className="container mx-auto px-4 py-8">
           <div className="space-y-6">
-            <div className="h-12 bg-gradient-to-r from-pink-200 to-purple-200 dark:from-pink-900/50 dark:to-purple-900/50 animate-pulse rounded-xl"></div>
+            <div className="h-12 bg-gradient-to-r from-slate-200 to-indigo-200 dark:from-slate-900/50 dark:to-indigo-900/50 animate-pulse rounded-xl"></div>
             <div className="grid gap-4">
               {[...Array(3)].map((_, i) => (
-                <div key={i} className="h-32 bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-900/30 dark:to-purple-900/30 animate-pulse rounded-xl border-l-4 border-pink-300"></div>
+                <div key={i} className="h-32 bg-gradient-to-r from-slate-100 to-indigo-100 dark:from-slate-900/30 dark:to-indigo-900/30 animate-pulse rounded-xl border-l-4 border-indigo-300"></div>
               ))}
             </div>
           </div>
@@ -160,27 +160,26 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 dark:from-pink-950/30 dark:via-purple-950/30 dark:to-indigo-950/30">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900/30 dark:via-slate-900/30 dark:to-indigo-950/30">
       <div className="container mx-auto px-4 py-8">
         <div className="space-y-8">
           {/* Header */}
           <div className="flex items-center justify-between">
             <div className="space-y-2">
               <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-500 text-white shadow-lg">
-                  <Cat className="h-7 w-7" />
+                <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg">
+                  <Briefcase className="h-7 w-7" />
                 </div>
                 <div>
-                  <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+                  <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100">
                     My Tasks
                   </h1>
                   <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-                    <Heart className="h-4 w-4 text-pink-400" />
                     <span>
                       {completedCount} of {totalCount} tasks completed
                     </span>
                     {completedCount === totalCount && totalCount > 0 && (
-                      <span className="text-pink-500">🎉 All done!</span>
+                      <span className="text-indigo-600">🎉 All done!</span>
                     )}
                   </div>
                 </div>
@@ -189,16 +188,15 @@ export default function DashboardPage() {
             
             <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
               <DialogTrigger asChild>
-                <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white shadow-lg">
+                <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg">
                   <Plus className="mr-2 h-4 w-4" />
                   Add Task
-                  <Sparkles className="ml-2 h-4 w-4" />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="border-2 border-pink-100 dark:border-pink-900/50">
+              <DialogContent className="border-2 border-slate-200 dark:border-slate-800/50">
                 <DialogHeader>
                   <DialogTitle className="flex items-center gap-2 text-gray-900 dark:text-gray-100">
-                    <Cat className="h-5 w-5 text-pink-500" />
+                    <Briefcase className="h-5 w-5 text-indigo-600" />
                     Add New Task
                   </DialogTitle>
                   <DialogDescription className="text-gray-600 dark:text-gray-400">
@@ -232,7 +230,7 @@ export default function DashboardPage() {
                   <Button 
                     onClick={handleAddTodo} 
                     disabled={!newTodo.title.trim()}
-                    className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
                   >
                     Add Task
                   </Button>
@@ -243,7 +241,7 @@ export default function DashboardPage() {
 
           {/* Progress Bar */}
           {totalCount > 0 && (
-            <div className="bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded-xl p-4 border border-pink-100 dark:border-pink-900/50">
+            <div className="bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded-xl p-4 border border-slate-200 dark:border-slate-800/50">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Progress</span>
                 <span className="text-sm text-gray-500 dark:text-gray-400">
@@ -252,7 +250,7 @@ export default function DashboardPage() {
               </div>
               <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                 <div
-                  className="bg-gradient-to-r from-pink-400 to-purple-500 h-2 rounded-full transition-all duration-500 ease-out"
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 h-2 rounded-full transition-all duration-500 ease-out"
                   style={{ width: `${(completedCount / totalCount) * 100}%` }}
                 ></div>
               </div>
@@ -261,25 +259,25 @@ export default function DashboardPage() {
 
           {/* Tasks */}
           {todos.length === 0 ? (
-            <Card className="py-20 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm border-2 border-pink-100 dark:border-pink-900/50">
+            <Card className="py-20 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm border-2 border-slate-200 dark:border-slate-800/50">
               <CardContent className="text-center">
-                <div className="flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-pink-400 to-purple-500 text-white mx-auto mb-6 shadow-lg">
-                  <Cat className="h-12 w-12" />
+                <div className="flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white mx-auto mb-6 shadow-lg">
+                  <Briefcase className="h-12 w-12" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                   No tasks yet! 
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto">
-                  Ready to get organized? Add your first task and let our AI kitten help you categorize it perfectly! 🐱
+                  Ready to get organized? Add your first task and let our AI assist with smart categorization.
                 </p>
                 <Button 
                   onClick={() => setIsAddDialogOpen(true)}
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white shadow-lg"
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg"
                   size="lg"
                 >
                   <Plus className="mr-2 h-5 w-5" />
                   Add Your First Task
-                  <Sparkles className="ml-2 h-5 w-5" />
+
                 </Button>
               </CardContent>
             </Card>
@@ -288,7 +286,7 @@ export default function DashboardPage() {
               {todos.map((todo) => (
                 <Card 
                   key={todo.id} 
-                  className={`${PRIORITY_COLORS[(todo.priority as TodoPriority) || "medium"]} border-l-4 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm border border-pink-100 dark:border-pink-900/50 hover:shadow-lg transition-all duration-200`}
+                  className={`${PRIORITY_COLORS[(todo.priority as TodoPriority) || "medium"]} border-l-4 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm border border-slate-200 dark:border-slate-800/50 hover:shadow-lg transition-all duration-200`}
                 >
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between">
@@ -296,7 +294,7 @@ export default function DashboardPage() {
                         <Checkbox
                           checked={todo.completed}
                           onCheckedChange={() => handleToggleComplete(todo)}
-                          className="border-pink-300 dark:border-pink-700 data-[state=checked]:bg-pink-500 data-[state=checked]:border-pink-500"
+                          className="border-indigo-300 dark:border-indigo-700 data-[state=checked]:bg-indigo-600 data-[state=checked]:border-indigo-600"
                         />
                         <div className="flex-1 min-w-0">
                           <CardTitle className={`text-lg leading-tight ${
