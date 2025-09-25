@@ -25,7 +25,7 @@ npm run db:reset     # Reset database (drops all tables)
 
 ## Architecture Overview
 
-This is a TaskAgent (formerly TaskFlow) application - a task management system with AI-powered categorization and prioritization.
+This is a TaskAgent (formerly TaskFlow 2.0) application - a task management system with AI-powered categorization and prioritization.
 
 ### Core Stack
 - **Frontend**: Next.js 15 + React 19 + TypeScript
