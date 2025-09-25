@@ -23,7 +23,9 @@
       "Bash(npm install:*)",
       "Bash(git config:*)",
       "Bash(git commit:*)",
-      "Bash(npx pnpm install:*)"
+      "Bash(npx pnpm install:*)",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)"
     ],
     "additionalDirectories": [
       "C:\\c\\Projects\\nextjs-better-auth-postgresql-starter-kit"
